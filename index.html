@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/locale/af.js"></script>
+        <script type="text/javascript" src="assets/javascript/app.js"></script>
+    </head>
+    <body>
+        <div class="container">
+    
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-10">
+                    <div class="jumbotron">
+                        <h1 class="text-center">Train Schedule</h1>
+                    </div>
+                </div>
+            </div>
+    
+
+<div class="row align-items-center justify-content-center" id="train-table">
+        <div class="col-md-10">
+    <!-- need header for table that says "current train schedule" -->
+    <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Train Name</th>
+                <th scope="col">Destination</th>
+                <th scope="col">Frequency (mins)</th>
+                <th scope="col">Next Arrival</th>
+                <th scope="col">Minutes Away</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="train-name-table">name</td>
+                <td id="destination-table">where going</td>
+                <td id="frequency-table">frequency</td>
+                <td id="next-arrival-table">arrival time</td>
+                <td id="minutes-away-table">time til arrival</td>
+              </tr>
+            </tbody>
+          </table>
+
+          </div>
+          </div>
+
+    <div class="row align-items-center justify-content-center">
+        <div class="col-md-10" id="train-form">
+    <!-- need header for form that says "add train" -->
+    <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Train Name</label>
+              <input type="text" class="form-control" id="train-name" aria-describedby="emailHelp" placeholder="Test train">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Destination</label>
+              <input type="text" class="form-control" id="destination" placeholder="Outer space">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">First Train Time (HH:MM - military)</label>
+              <input type="text" class="form-control" id="first-time" placeholder="09:00">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Frequency (mins)</label>
+              <input type="text" class="form-control" id="frequency" placeholder="10">
+            </div>
+            <span>
+              <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
+              <button type="submit" class="btn btn-primary" id="remove-button">Remove Train</button>
+            </span>
+          </form>
+          </div>
+          </div>
+          
+          </div>
+
+          <!-- row 1: col 1 is jumbotron // row 2: col 1 is table // row 3: col 1 is form -->
+</body>
+</html>
