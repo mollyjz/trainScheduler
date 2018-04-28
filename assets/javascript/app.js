@@ -36,8 +36,8 @@ var destination = "";
 $("#submit-button").on("click", function() {
     //capture user form entries
     name = $("#train-name").val().trim();
-    firstTrainTime = ("#first-time"); //how is this figured into the formula to calculate train arrival time????
-    frequency = $("#frequency").val().trim(); //how is this figured into the formula to calculate train arrival time????
+    firstTrainTime = $("#first-time").val().trim();
+    frequency = $("#frequency").val().trim();
     destination = $("#destination").val().trim();
     database.ref().push({ //pushing variables to firebase to be tracked
         name: name,
@@ -56,9 +56,7 @@ $("#submit-button").on("click", function() {
             $("#destination-table").text(snapshot.val().trainDestination);
             var trainFrequency = frequency.snapshot.val();
             $("#frequency-table").text(snapshot.val().trainFrequency);
-            
-            //var firstTimeConverted = ;
-            
+
             var currentTime = moment();
             console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
 
