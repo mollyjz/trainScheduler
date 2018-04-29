@@ -34,13 +34,13 @@ $("#submit-button").on("click", function() {
     });
 });
 
+database.ref().on("child_added", function(childSnapshot) { //on load, and anytime the data in the database changes...
 
-database.ref().on("value", function(snapshot) { //on load, and anytime the data in the database changes...
-
-    //console.log (snapshot.val().name); //UNDEFINED!!!!!!!!!!!!!!!???????????????????????????????????????????
-    frequencyInt = parseInt(snapshot.val().frequency); //converting to integer for use in calculations
-
-    console.log(snapshot.val()); //NULL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //console.log(childSnapshot.val().name); //defined here but not above--why????????????????????????????????????????
+    //console.log(childSnapshot.val().destination); //UNDEFINED!!!!!!!!!!!!!!!???????????????????????????????????????
+    //console.log(childSnapshot.val().firstTrainTime); //UNDEFINED!!!!!!!!!!!!!!!????????????????????????????????????
+    //console.log(childSnapshot.val().frequency); //UNDEFINED!!!!!!!!!!!!!!!??????????????????????????????????????????
+    frequencyInt = parseInt(childSnapshot.val().frequency); //converting to integer for use in calculations
 
     var currentTime = moment();
     var difference = moment().diff(moment(firstTrainTime), "minutes");
@@ -49,18 +49,7 @@ database.ref().on("value", function(snapshot) { //on load, and anytime the data 
     var arrivalTime = moment().add(minsUntilTrain, "minutes");
 
     //append data to train table
-    $("#train-table").append("<tr><td>" + snapshot.val().name + "</td><td>" + snapshot.val().destination + "</td><td>" + snapshot.val().frequency + "</td><td>" + arrivalTime + "</td><td>" + minsUntilTrain + "</td></tr>");
-
-    //refresh time until next train every minute
-    //function refreshOnMinute() {
-    //    $("").replaceWith(minsUntilTrain)
-    //};
-
-    //setInterval(refreshOnMinute(), 60000);
+    $("#train-table").append("<tr><td id='name-table'>" + childSnapshot.val().name + "</td><td id='destination-table'>" + childSnapshot.val().destination + "</td><td id='frequency-table'>" + childSnapshot.val().frequency + "</td><td id='arrival-time-table'>" + arrivalTime + "</td><td id='mins-til-table'>" + minsUntilTrain + "</td></tr>");
 });
 
-    });
-
-
-//$("#remove-button").on("click", function() {
-//});
+});
