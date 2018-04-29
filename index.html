@@ -28,7 +28,7 @@
 <div class="row align-items-center justify-content-center">
         <div class="col-md-10">
     <!-- need header for table that says "current train schedule" -->
-    <table class="table" id="train-table">
+    <table class="table" id="train-grid">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">Train Name</th>
@@ -38,14 +38,7 @@
                 <th scope="col">Minutes Away</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td id="train-name-table">name</td>
-                <td id="destination-table">where going</td>
-                <td id="frequency-table">frequency</td>
-                <td id="next-arrival-table">arrival time</td>
-                <td id="minutes-away-table">time til arrival</td>
-              </tr>
+            <tbody id="train-table">
             </tbody>
           </table>
 
@@ -66,7 +59,7 @@
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">First Train Time (HH:MM - military)</label>
-              <input type="number" class="form-control" id="first-time" placeholder="09:00">
+              <input type="time hh:mm" class="form-control" id="first-time" placeholder="09:00">
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Frequency (mins)</label>
